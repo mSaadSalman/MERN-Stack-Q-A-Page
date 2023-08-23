@@ -1,4 +1,3 @@
-console.log("testing")
 const express = require("express")
 const app = express()
 

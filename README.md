@@ -30,6 +30,7 @@ This project leverages the following Python libraries:
 ```html
     npm init -y (creates package JSON)
     npm install express
+    docker compose up -d
 ```
 
 ---
@@ -38,7 +39,7 @@ This project leverages the following Python libraries:
 | Id  | Feature  | Status  |
 |:-:  |---       | :-:     |
 | F01 | Setting Up Express Server |  D |
-| F01 |  |  P |   |
+| F02 | MongoDB Structuring |  D |  
 
 
 ---
