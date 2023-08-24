@@ -31,6 +31,10 @@ This project leverages the following Python libraries:
     npm init -y (creates package JSON)
     npm install express
     docker compose up -d
+    npm install mongodb
+    npm install nodemon
+    npm run ourserver
+    npm install ejs
 ```
 
 ---
