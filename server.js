@@ -5,6 +5,7 @@ let db
 
 app.set("view engine", "ejs")
 app.set("views","./views")
+app.use(express.static("public"))
 
 app.get("/",async(req, res) => {
     const allErrors = await db.collection("errors").find().toArray()
@@ -12,8 +13,13 @@ app.get("/",async(req, res) => {
 })
 
 app.get("/admin",(req, res) => {
-    res.send("Welcome to admin page (top secret)")
+    res.render("admin")
 
+})
+
+app.get("/api/errors",async (req, res)=>{
+    const allErrors = await db.collection("errors").find().toArray()
+    res.json(allErrors)
 })
 
 async function start(){

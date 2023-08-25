@@ -35,6 +35,8 @@ This project leverages the following Python libraries:
     npm install nodemon
     npm run ourserver
     npm install ejs
+    npm install react react-dom @babel/core @babel/preset-react babel-loader  webpack webpack-cli webpack-node-externals npm-run-all
+    npm install axios
 ```
 
 ---
@@ -44,6 +46,8 @@ This project leverages the following Python libraries:
 |:-:  |---       | :-:     |
 | F01 | Setting Up Express Server |  D |
 | F02 | MongoDB Structuring |  D |  
+| F03 | MongoDB and Front-End API Connection |  D | 
+| F04 | Making Admin Page with React & Express  |  D |
 
 
 ---
