@@ -48,6 +48,7 @@ This project leverages the following Python libraries:
 | F02 | MongoDB Structuring |  D |  
 | F03 | MongoDB and Front-End API Connection |  D | 
 | F04 | Making Admin Page with React & Express  |  D |
+| F05 | Password Protecting Admin Page  |  D |
 
 
 ---
