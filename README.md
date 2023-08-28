@@ -52,7 +52,7 @@ This project leverages the following Python libraries:
 | F06 | Create new post (updating backend to frontend)  |  D |
 | F07 | Allowing Admin Upload Thumbnail Photo  |  D |
 | F08 | Delete Question Post  |  D |
-
+| F09 | Admin Allowed to edit Question Post  |  D |
 
 ---
 

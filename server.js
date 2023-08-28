@@ -71,6 +71,23 @@ app.delete("/error/:id",async(req, res) =>{
     res.send("Good Job")
 })
 
+app.post("/update-error",upload.single("photo"),ourCleanup, async(req,res) =>{
+    if(req.file){
+        // if upload new pic
+        const phototofilename= `${Date.now()}.jpg`
+        await sharp(req.file.buffer).resize(844,456).jpeg({quality: 60}).toFile(path.join("public","uploaded-photos",phototofilename))
+        req.cleanData.photo= phototofilename
+        const info =await db.collection("errors").findOneAndUpdate({_id: new ObjectId(req.body._id)},{$set: req.cleanData})
+        if (info.value.photo){
+            fse.remove(path.join("public","uploaded-photos"),info.value.photo)
+        }
+        res.send(phototofilename)
+    } else{
+        db.collection("errors").findOneAndUpdate({_id: new ObjectId(req.body._id)},{$set: req.cleanData})
+        res.send(false)
+    }
+})
+
 function ourCleanup(req,res,next){
     if(typeof req.body.Name != "string") req.body.Name =""
     if(typeof req.body.Details != "string") req.body.Details =""
