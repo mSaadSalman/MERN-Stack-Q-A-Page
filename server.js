@@ -61,6 +61,16 @@ app.post("/create-error", upload.single("photo"),ourCleanup,async (req,res) =>{
     res.send(newError)
 })
 
+app.delete("/error/:id",async(req, res) =>{
+    if (typeof req.params.id !="string") req.params.id=""
+    const doc= await db.collection("errors").findOne({_id: new ObjectId(req.params.id)})
+    if (doc.photo){
+        fse.remove(path.join("public","uploaded-photos", doc.photo))
+    }
+    db.collection("errors").deleteOne({_id: new ObjectId(req.params.id)})
+    res.send("Good Job")
+})
+
 function ourCleanup(req,res,next){
     if(typeof req.body.Name != "string") req.body.Name =""
     if(typeof req.body.Details != "string") req.body.Details =""

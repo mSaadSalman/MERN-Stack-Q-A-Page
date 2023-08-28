@@ -51,6 +51,7 @@ This project leverages the following Python libraries:
 | F05 | Password Protecting Admin Page  |  D |
 | F06 | Create new post (updating backend to frontend)  |  D |
 | F07 | Allowing Admin Upload Thumbnail Photo  |  D |
+| F08 | Delete Question Post  |  D |
 
 
 ---
