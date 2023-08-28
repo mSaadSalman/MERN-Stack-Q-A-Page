@@ -4,7 +4,12 @@ const app = express()
 const multer = require('multer')
 const upload = multer()
 const sanitizeHTML = require('sanitize-html')
+const fse = require('fs-extra')
+const sharp =require('sharp')
 let db
+const path= require('path')
+
+fse.ensureDirSync(path.join("public","uploaded-photos"))
 
 app.set("view engine", "ejs")
 app.set("views","./views")
@@ -44,6 +49,12 @@ app.get("/api/errors",async (req, res)=>{
 })
 
 app.post("/create-error", upload.single("photo"),ourCleanup,async (req,res) =>{
+    if (req.file){
+        const phototofilename= `${Date.now()}.jpg`
+        await sharp(req.file.buffer).resize(844,456).jpeg({quality: 60}).toFile(path.join("public","uploaded-photos",phototofilename))
+        req.cleanData.photo= phototofilename
+
+    }
     console.log(req.body)
     const info = await db.collection("errors").insertOne(req.cleanData)
     const newError = await db.collection("errors").findOne({_id: new ObjectId(info.insertedId)})
